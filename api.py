@@ -24,9 +24,11 @@ supabase = create_client(
     os.getenv("SUPABASE_URL"),
     os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 )
-print("step1")
-model = SentenceTransformer("all-MiniLM-L6-v2")
-print("step2")
+
+# model = SentenceTransformer("all-MiniLM-L6-v2")
+model = None
+print("API STARTED")
+
 index = None
 chunks = []
 extracted_info = {}
@@ -107,10 +109,10 @@ async def startup():
                 metadata={"source": candidate["source"], "candidate_name": candidate["name"]}
             ))
     
-    chunks = chunking(docs) 
+    #chunks = chunking(docs) 
     print("Chunks:", len(chunks))
 
-    index = create_faiss_index(model, chunks)
+    #index = create_faiss_index(model, chunks)
     print("FAISS INDEX CREATED:", index.ntotal, "vectors")
 
     print(f"Loaded {len(candidates)} candidates, built FAISS index with {len(chunks)} chunks!")
