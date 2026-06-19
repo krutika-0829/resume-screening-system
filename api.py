@@ -24,15 +24,16 @@ supabase = create_client(
     os.getenv("SUPABASE_URL"),
     os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 )
-
+print("step1")
 model = SentenceTransformer("all-MiniLM-L6-v2")
+print("step2")
 index = None
 chunks = []
 extracted_info = {}
 
 @asynccontextmanager 
 async def lifespan(app: FastAPI):
-    await startup()
+    # await startup()
     yield
 
 app = FastAPI(lifespan=lifespan)

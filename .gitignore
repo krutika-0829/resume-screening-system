@@ -4,4 +4,4 @@ __pycache__/
 temp*.pdf
 .vscode/
 docs/
-
+extracted_info.json
