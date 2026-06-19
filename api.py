@@ -2,7 +2,7 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from pydantic import BaseModel,Field
 from contextlib import asynccontextmanager
 from supabase import create_client
-from sentence_transformers import SentenceTransformer
+#from sentence_transformers import SentenceTransformer
 from dotenv import load_dotenv
 from langchain_core.documents import Document
 from ingestion import extract_text_from_pdf,clean_resume,candidates_info,chunking

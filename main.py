@@ -1,4 +1,4 @@
-from sentence_transformers import SentenceTransformer
+#from sentence_transformers import SentenceTransformer
 from retriver import create_faiss_index
 from ingestion import load_documents,clean_documents,chunking,store_extracted_info
 from filters import metadata_filtering,resume_match_JD
