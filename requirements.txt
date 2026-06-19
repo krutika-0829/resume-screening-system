@@ -5,17 +5,9 @@ python-dotenv==1.2.2
 
 supabase==2.31.0
 
-sentence-transformers==5.5.1
-faiss-cpu==1.14.2
 numpy==2.4.6
 
 google-genai==2.8.0
 
-langchain-core==1.4.6
-langchain-community==0.4.2
-langchain-text-splitters==1.1.2
-
 PyMuPDF==1.27.2.3
 pypdf==6.13.2
-
-streamlit==1.58.0
