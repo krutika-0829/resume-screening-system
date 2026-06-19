@@ -6,9 +6,9 @@ from supabase import create_client
 from dotenv import load_dotenv
 from langchain_core.documents import Document
 from ingestion import extract_text_from_pdf,clean_resume,candidates_info,chunking
-from retriver import create_faiss_index
+# from retriver import create_faiss_index
 from filters import resume_match_JD
-from main import query
+# from main import query
 from typing import List
 from fastapi.openapi.utils import get_openapi
 import json
