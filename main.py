@@ -7,9 +7,7 @@ from llm import query_response
 import json
 
 
-import torch
-print(torch.__version__)
-print(torch.cuda.is_available())
+
 
 
 # documents = load_documents("docs")

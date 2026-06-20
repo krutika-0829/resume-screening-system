@@ -1,6 +1,6 @@
 import json
 from llm import analyze_query,match_jd
-from ingestion import store_extracted_info
+
 
 
 # extracted_info = store_extracted_info()

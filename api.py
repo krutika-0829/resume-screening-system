@@ -2,13 +2,13 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from pydantic import BaseModel,Field
 from contextlib import asynccontextmanager
 from supabase import create_client
-#from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer
 from dotenv import load_dotenv
 from langchain_core.documents import Document
 from ingestion import extract_text_from_pdf,clean_resume,candidates_info,chunking
-# from retriver import create_faiss_index
+from retriver import create_faiss_index
 from filters import resume_match_JD
-# from main import query
+from main import query
 from typing import List
 from fastapi.openapi.utils import get_openapi
 import json
@@ -25,9 +25,8 @@ supabase = create_client(
     os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 )
 
-# model = SentenceTransformer("all-MiniLM-L6-v2")
-model = None
-print("API STARTED")
+model = SentenceTransformer("all-MiniLM-L6-v2")
+
 
 index = None
 chunks = []
@@ -109,10 +108,10 @@ async def startup():
                 metadata={"source": candidate["source"], "candidate_name": candidate["name"]}
             ))
     
-    #chunks = chunking(docs) 
+    chunks = chunking(docs) 
     print("Chunks:", len(chunks))
 
-    #index = create_faiss_index(model, chunks)
+    index = create_faiss_index(model, chunks)
     print("FAISS INDEX CREATED:", index.ntotal, "vectors")
 
     print(f"Loaded {len(candidates)} candidates, built FAISS index with {len(chunks)} chunks!")
